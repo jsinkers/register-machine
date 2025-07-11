@@ -67,7 +67,7 @@ services:
         until pg_isready -h db -U ${POSTGRES_USER}; do sleep 1; done &&
         python backend/manage.py migrate &&
         python backend/manage.py runscript import_challenges &&
-        gunicorn backend.wsgi:application --bind 0.0.0.0:8000
+        gunicorn --chdir backend project4.wsgi --bind 0.0.0.0:8000 --log-file -
       "
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
