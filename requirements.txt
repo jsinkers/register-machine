@@ -10,3 +10,4 @@ sqlalchemy
 python-dotenv
 data-wizard
 django-extensions
+urllib3>=2.6.0 # not directly required, pinned by Snyk to avoid a vulnerability
